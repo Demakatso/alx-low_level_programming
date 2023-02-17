@@ -2,10 +2,14 @@
 /**
  * main - Entry point
  *
+ * Description: Using sizeoff to print size of various types.
+ *
  * Return Always 0 (Success)
  */
 int main(void)
 {
+	/*sizeof evaluates the size of a variable */
+
 	char a;
 	int b;
 	long int c;
