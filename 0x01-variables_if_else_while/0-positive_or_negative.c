@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <time.h>
-#include <studio.h>
+#include <stdio.h>
 
 /**
- * main - Determines if a number is positive, negative or zero.
+ * main - Entry point
  *
  * Return: Always 0 (Success)
  */
