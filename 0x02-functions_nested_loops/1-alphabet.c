@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.>
 
 /**
  * main - entry stream
@@ -6,12 +7,9 @@
  */
 int main(void)
 {
-	char letter;
+	char c;
 
-	for (letter = 'a'; letter <= 'z'; letter++);
-		putchar(letter);
-
-	putchar('\n');
-	return (0);
+	for (c = 'a'; c <= 'z'; c++);
+		_putchar(c);
+	printf("\n");
 } 
-
