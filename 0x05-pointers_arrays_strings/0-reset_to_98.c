@@ -1,25 +1,12 @@
 #include "main.h"
 
 /**
- * _strcat - concat 2 string
- * @dest:char
- * @src:char
- * Return:char
- */
-char *_strcat(char *dest, char *src)
-{
-	char *s = dest;
+* reset_to_98 - takes the pointer and updates the value
+* @n: int to check
+* Return: 0 is success
+*/
 
-	while (*dest != '\0')
-	{
-		dest++;
-	}
-	while (*src != '\0')
-	{
-		*dest = *src;
-		dest++;
-		src++;
-	}
-	*dest = '\0';
-	return (s);
+void reset_to_98(int *n)
+{
+	*n = 98;
 }
