@@ -1,32 +1,27 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
-* _strstr - function locate
-* @haystack: pointer to char
-* @needle: pointer to char
-* Return: 0
-*/
+ * _strpbrk - bytes
+ * @s: pointer to char
+ * @accept: pointer to char
+ * Return: NULL
+ */
 
-char *_strstr(char *haystack, char *needle)
+char *_strpbrk(char *s, char *accept)
 {
-	char *result = haystack, *fneedle = needle;
+	int i;
 
-	while (*haystack)
+	while (*s)
 	{
-		while (*needle)
+		for (i = 0; accept[i]; i++)
 		{
-			if (*haystack++ != *needle++)
+			if (*s == accept[i])
 			{
-				break;
+				return (s);
 			}
 		}
-		if (!*needle)
-		{
-			return (result);
-		}
-		needle = fneedle;
-		result++;
-		haystack = result;
+		s++;
 	}
-	return (0);
+	return (NULL);
 }
