@@ -1,29 +1,21 @@
-#include "3-calc.h"
-#include <stdlib.h>
-
+#ifndef _HEADER_
+#define _HEADER_
 /**
- * get_op_func - Selects the correct function to perform
- *               the operation asked by the user.
- * @s: The operator passed as argument.
+ * struct op - Struct op
  *
- * Return: A pointer to the function corresponding
- *         to the operator given as a parameter.
+ * @op: The operator
+ * @f: The function associated
  */
-int (*get_op_func(char *s))(int, int)
+typedef struct op
 {
-	op_t ops[] = {
-		{"+", op_add},
-		{"-", op_sub},
-		{"*", op_mul},
-		{"/", op_div},
-		{"%", op_mod},
-		{NULL, NULL},
-	};
+	char *op;
+	int (*f)(int a, int b);
+} op_t;
 
-	int i = 0;
-
-	while (ops[i].op != NULL && *(ops[i].op) != *s)
-		i++;
-
-	return (ops[i].f);
-}
+int op_add(int a, int b);
+int op_sub(int a, int b);
+int op_mul(int a, int b);
+int op_div(int a, int b);
+int op_mod(int a, int b);
+int (*get_op_func(char *s))(int, int);
+#endif
