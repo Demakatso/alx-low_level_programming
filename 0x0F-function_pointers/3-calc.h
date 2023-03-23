@@ -1,5 +1,5 @@
-#ifndef _3_CALC_H_
-#define _3_CALC_H_
+#ifndef _3_CALC_H
+#define _3_CALC_H
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -23,4 +23,4 @@ typedef struct op
 	int (*f)(int a, int b);
 } op_t;
 
-#endif /*_3_CALC_H_*/
+#endif /*_3_CALC_H*/
