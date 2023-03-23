@@ -1,23 +1,35 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "function_pointers.h"
 
 /**
- * print_opcodes - print the opcodes of this program
- * @a: address of the main function
- * @n: number of bytes to print
- *
- * Return: void
+ * main - generates opcodes of its own main function
+ * @argc: argument counter.
+ * @argv: argument vector.
+ * Return: the opcodes
  */
-void print_opcodes(char *a, int n)
-{
-	int i;
 
-	for (i = 0; i < n; i++)
+int main(int argc, char **argv)
+{
+	int a, number;
+
+	if (argc != 2)
 	{
-		printf("%.2hhx", a[i]);
-		if (i < n - 1)
+		printf("Error\n");
+		return (1);
+	}
+	number = atoi(argv[1]);
+	if (number < 0)
+	{
+		printf("Error\n");
+		exit(2);
+	}
+
+	for (a = 0; a < number; a++)
+	{
+		printf("%02hhx", ((char *)main)[a]);
+		if (a == (number - 1))
+			printf("\n");
+		else
 			printf(" ");
 	}
-	printf("\n");
-
+	return (0);
 }
