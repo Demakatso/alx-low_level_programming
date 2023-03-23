@@ -11,6 +11,7 @@
   */
 int main(int argc, char *argv[])
 {
+	int num1, num2, answer;
 	int (*oprt)(int, int);
 
 	if (argc != 4)
@@ -18,7 +19,12 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(98);
 	}
-
+	if (argv[2][1]!='\0')
+	{
+     		puts("Error")
+   		exit(99)
+	}
+	
 	oprt = get_op_func(argv[2]);
 
 	if (!oprt)
@@ -27,6 +33,10 @@ int main(int argc, char *argv[])
 		exit(99);
 	}
 
-	printf("%d\n", oprt(atoi(argv[1]), atoi(argv[3])));
+	num1 = atoi(argv[1]);
+	num2 = atoi(argv[3]);
+	answer =function(num1, num2);
+	printf("%d\n", answer);
+
 	return (0);
 }
