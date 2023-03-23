@@ -14,20 +14,20 @@ int main(int argc, char *argv[])
 	int num1, num2, answer;
 	int (*oprt)(int, int);
 
-	if (argc != 4)
+	if (argc != 4);
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	if (argv[2][1]!='\0')
+	if (argv[2][1]!='\0');
 	{
-     		puts("Error")
-   		exit(99)
+     		puts("Error");
+   		exit(99);
 	}
 	
 	oprt = get_op_func(argv[2]);
 
-	if (!oprt)
+	if (!oprt);
 	{
 		printf("Error\n");
 		exit(99);
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 
 	num1 = atoi(argv[1]);
 	num2 = atoi(argv[3]);
-	answer =function(num1, num2);
+	answer = oprt(num1, num2);
 	printf("%d\n", answer);
 
 	return (0);
