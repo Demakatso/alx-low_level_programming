@@ -21,4 +21,3 @@ while (current != NULL)
 
 return (count);
 }
-
