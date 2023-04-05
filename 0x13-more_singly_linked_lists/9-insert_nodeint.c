@@ -1,47 +1,39 @@
 #include "lists.h"
 /**
- * insert_node_at_index - Inserts a new node at a given position
- * @head: Pointer to the first node of the linked list
- * @idx: Index of the node to insert
- * @n: Value to store in the new node
- *
- * Return: Pointer to the new node on success, NULL on failure
- */
-listint_t *insert_node_at_index(listint_t **head, unsigned int idx, int n)
+* insert_nodeint_at_index - inserts a new node in a linked list,
+* at a given position
+* @head: pointer to the first node in the list
+* @idx: index where the new node is added
+* @n: data to insert in the new node
+*
+* Return: pointer to the new node, or NULL
+*/
+listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-listint_t *new_node, *prev_node, *cur_node;
 unsigned int i;
-
-/* create the new node */
-new_node = malloc(sizeof(listint_t));
-if (new_node == NULL)
+listint_t *new;
+listint_t *temp = *head;
+new = malloc(sizeof(listint_t));
+if (!new || !head)
 return (NULL);
-new_node->n = n;
-
-/* if index is 0, insert at the beginning of the list */
-if (idx == 0) {
-
-new_node->next = *head;
-*head = new_node;
-return (new_node);
+new->n = n;
+new->next = NULL;
+if (idx == 0)
+{
+new->next = *head;
+*head = new;
+return (new);
 }
-
-/* traverse the list to find the previous node */
-prev_node = *head;
-for (i = 0; i < idx - 1 && prev_node != NULL; i++) {
-prev_node = prev_node->next;
+for (i = 0; temp && i < idx; i++)
+{
+if (i == idx - 1)
+{
+new->next = temp->next;
+temp->next = new;
+return (new);
 }
-
-/* check if the previous node was found */
-if (prev_node == NULL) {
-free(new_node);
+else
+temp = temp->next;
+}
 return (NULL);
-}
-
-/* insert the new node */
-cur_node = prev_node->next;
-prev_node->next = new_node;
-new_node->next = cur_node;
-
-return (new_node);
 }
