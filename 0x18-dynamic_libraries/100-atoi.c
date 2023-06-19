@@ -1,38 +1,42 @@
-#include "main.h"
+#include <stdio.h>
+#include <limits.h>
 
 /**
  * _atoi - ...
- * @s: ...
- * Return: ...
+ * @str:...
+ * Return:...
  */
-int _atoi(char *s)
+
+int _atoi(char *str)
 {
-	int c = 0;
-	unsigned int ni = 0;
-	int min = 1;
-	int isi = 0;
+	int sign = 1, base = 0, i = 0;
 
-	while (s[c])
+	/*if whitespaces then ignore.*/
+	while (str[i] == ' ')
 	{
-		if (s[c] == 45)
-		{
-			min *= -1;
-		}
-
-		while (s[c] >= 48 && s[c] <= 57)
-		{
-			isi = 1;
-			ni = (ni * 10) + (s[c] - '0');
-			c++;
-		}
-
-		if (isi == 1)
-		{
-			break;
-		}
-
-		c++;
+		i++;
 	}
 
-	ni *= min;
-	return (ni);
+	/*sign of number*/
+	if (str[i] == '-' || str[i] == '+')
+	{
+		sign = 1 - 2 * (str[i++] == '-');
+	}
+
+	/*checking for valid input*/
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		/*handling overflow test case*/
+		if (base > INT_MAX / 10
+		|| (base == INT_MAX / 10
+		&& str[i] - '0' > 7))
+		{
+			if (sign == 1)
+				return (INT_MAX);
+			else
+				return (INT_MIN);
+		}
+		base = 10 * base + (str[i++] - '0');
+	}
+	return (base * sign);
+}
