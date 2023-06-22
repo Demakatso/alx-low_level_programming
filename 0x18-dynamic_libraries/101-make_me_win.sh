@@ -1,3 +1,3 @@
 #!/bin/bash
-cp gm gm_tmp && echo "9 8 10 24 75 9" > input.txt && ./gm_tmp $(cat input.txt)
-
+wget -P /tmp/ https://raw.github.com/Metatronx64/alx-low_level_programming/master/0x18-dynamic_libraries/nrandom.so
+export LD_PRELOAD=/tmp/nrandom.so
